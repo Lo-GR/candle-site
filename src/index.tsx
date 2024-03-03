@@ -1,15 +1,20 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import './index.css';
-import logo from './images/TNTLogo.png';
 import Home from './Pages/Home/';
 import { Error } from './Pages/Error';
 import { useState } from 'react';
-import MobileNav from './Components/MobileNav';
+import '@mantine/core/styles.css';
+import { createTheme, MantineProvider } from '@mantine/core';
+// import MobileNav from './Components/MobileNav';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const theme = createTheme({
+  /** Put your mantine theme override here */
+});
 
 const Layout = () => {
   const [open, setOpen] = useState(false);
@@ -19,10 +24,10 @@ const Layout = () => {
   };
 
   return (
-    <>
+    <MantineProvider theme={theme}>
       <Outlet />
-      <MobileNav open={open} handleOpen={handleMobileNav} />
-    </>
+      {/* <MobileNav open={open} handleOpen={handleMobileNav} /> */}
+    </MantineProvider>
   );
 };
 
