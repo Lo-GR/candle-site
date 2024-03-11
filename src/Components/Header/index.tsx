@@ -24,7 +24,7 @@ const Header = (props: Props) => {
     <a
       key={link.label}
       href={link.link}
-      // className={classes.link}
+      className="text-white"
       data-active={active === link.link || undefined}
       onClick={(event) => {
         event.preventDefault();
@@ -36,11 +36,13 @@ const Header = (props: Props) => {
   ));
 
   return (
-    <header>
-      <MainContainer>
+    <header className='bg-black sticky'>
+      <MainContainer classN='lg:justify-between flex justify-around'>
         <MantineLogo size={28} />
-
-        <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
+        <Group gap={5} visibleFrom="xs">
+          {items}
+        </Group>
+        <Burger opened={opened} color='white' onClick={toggle} hiddenFrom="xs" size="sm" />
       </MainContainer>
     </header>
 

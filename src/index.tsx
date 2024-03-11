@@ -6,6 +6,7 @@ import { Error } from './Pages/Error';
 import { useState } from 'react';
 import '@mantine/core/styles.css';
 import { createTheme, MantineProvider } from '@mantine/core';
+import Header from './Components/Header';
 // import MobileNav from './Components/MobileNav';
 
 const root = ReactDOM.createRoot(
@@ -25,6 +26,7 @@ const Layout = () => {
 
   return (
     <MantineProvider theme={theme}>
+      <Header />
       <Outlet />
       {/* <MobileNav open={open} handleOpen={handleMobileNav} /> */}
     </MantineProvider>
