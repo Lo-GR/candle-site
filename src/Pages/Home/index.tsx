@@ -8,7 +8,7 @@ type Props = {}
 export default function Home({ }: Props) {
   return (
     <div>
-      <Hero image={GaelicSmokeHero} h1='Gaelic Smoke' />
+      <Hero image={GaelicSmokeHero} h1='Gaelic Smoke Candles' />
     </div>
   )
 }
