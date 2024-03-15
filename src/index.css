@@ -39,6 +39,15 @@
   font-style: normal;
 }
 
+
+
+Breakpoint prefix	Minimum width	CSS
+sm	640px	@media (min-width: 640px) { ... }
+md	768px	@media (min-width: 768px) { ... }
+lg	1024px	@media (min-width: 1024px) { ... }
+xl	1280px	@media (min-width: 1280px) { ... }
+2xl	1536px	@media (min-width: 1536px) { ... }
+
 */
 :root {
   --sp-primary-200: #060903;
@@ -204,7 +213,7 @@ body,
 #root {
   height: 100%;
   width: 100%;
-  /* background-color: #000000; */
+  background-color: #dfd8c8;
 }
 
 code {
@@ -230,9 +239,9 @@ h1 {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: 4rem;
-  line-height: 4.4rem;
-  color: white
+  color: white;
+  font-size: 2rem;
+  line-height: 2.2rem;
 }
 
 p {
@@ -241,4 +250,11 @@ p {
   font-style: normal;
   font-size: 1.75rem;
   line-height: 2rem;
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 4rem;
+    line-height: 4.4rem;
+  }
 }
