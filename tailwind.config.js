@@ -3,23 +3,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'sp-primary': {
-          200: '#000000',
-          300: '#231F20',
-          400: '#54482C',
-          // 500: '#00ADB5',
-          // 600: '#00A7B5',
-          // 700: '#00A1B5',
+        'green-moss': {
+          400: '#727D47',
         },
-        'sp-secondary': {
-          300: '#F7FDFD',
-          400: '#FBFCF7',
-          500: '#EFEEE6',
+        'purple-smoke': {
+          400: '#6D6073',
         },
-        'sp-tertiary': {
-          500: '#E09331',
-          600: '#F2DC4F'
+        'grey-moss': {
+          300: 'rgba(0, 0, 0, .40)',
+          400: 'rgba(0, 0, 0, .65)'
         },
+        'white-bg': {
+          300: '#dfd8c8'
+        }
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],

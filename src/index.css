@@ -50,14 +50,12 @@ xl	1280px	@media (min-width: 1280px) { ... }
 
 */
 :root {
-  --sp-primary-200: #060903;
-  --sp-primary-300: #231F20;
-  --sp-primary-400: #54482C;
-  --sp-secondary-300: #F7FDFD;
-  --sp-secondary-400: #FBFCF7;
-  --sp-secondary-500: #EFEEE6;
-  --sp-tertiary-500: #E09331;
-  --sp-tertiary-600: #F2DC4F;
+  --green-moss: #727D47;
+  --purple-smoke: #6D6073;
+  /* use over white */
+  --grey-smoke: rgba(0, 0, 0, .65);
+  --grey-moss: rgba(0, 0, 0, .40);
+  --background-white: #dfd8c8;
 }
 
 html,
@@ -213,7 +211,7 @@ body,
 #root {
   height: 100%;
   width: 100%;
-  background-color: #dfd8c8;
+  background-color: var(--background-white);
 }
 
 code {
@@ -234,11 +232,15 @@ h2 {
   font-weight: 600
 } */
 
+header p,
 h1 {
   font-family: "Bitter", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+h1 {
   color: white;
   font-size: 2rem;
   line-height: 2.2rem;

@@ -1,48 +1,42 @@
 import React, { useState } from 'react'
-import { Burger, Group } from '@mantine/core'
+import { Burger, Group, Image } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
-import { MantineLogo } from '@mantinex/mantine-logo'
+import logo from '../../Images/GSlogowhiteLRG.png'
 import MainContainer from '../MainContainer'
+import { Link, useLocation } from 'react-router-dom'
+import { paths } from '../../Helpers/helpers'
 
 
-type Props = {}
+type HeaderProps = {
+  handleMobileOpen: () => void;
+  open: boolean
+}
 
-
-
-const links = [
-  { link: '/about', label: 'Features' },
-  { link: '/pricing', label: 'Pricing' },
-  { link: '/learn', label: 'Learn' },
-  { link: '/community', label: 'Community' },
-];
-
-const Header = (props: Props) => {
+const Header = ({ handleMobileOpen, open }: HeaderProps) => {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  const location = useLocation();
 
-  const items = links.map((link) => (
-    <a
-      key={link.label}
-      href={link.link}
-      className="text-white"
-      data-active={active === link.link || undefined}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(link.link);
-      }}
-    >
-      {link.label}
-    </a>
+  const items = paths.map((link) => (
+    <Link key={link.label} to={link.link}>
+      <p
+        className={
+          location.pathname === link.link
+            ? 'text-purple-smoke-400'
+            : 'text-white-bg-300'
+        }>
+        {link.label}
+      </p>
+    </Link>
   ));
 
   return (
-    <header className='bg-black sticky'>
-      <MainContainer classN='lg:justify-between flex justify-around'>
-        <MantineLogo size={28} />
+    <header className='bg-grey-moss-400 sticky'>
+      <MainContainer classN=' h-20 lg:justify-between flex justify-around'>
+        <Image src={logo} h={"auto"} />
         <Group gap={5} visibleFrom="xs">
           {items}
         </Group>
-        <Burger opened={opened} color='white' onClick={toggle} hiddenFrom="xs" size="sm" />
+        <Burger opened={open} color='white' onClick={handleMobileOpen} hiddenFrom="xs" size="md" />
       </MainContainer>
     </header>
 

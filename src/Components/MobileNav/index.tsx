@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import CloseIcon from '@mui/icons-material/Close';
+import { paths } from '../../Helpers/helpers';
 
 interface MobileNavProps {
   open: boolean;
@@ -26,6 +27,19 @@ const MobileNav = ({ open, handleOpen }: MobileNavProps) => {
 
   const location = useLocation();
 
+  const items = paths.map((link) => (
+    <Link key={link.label} to={link.link}>
+      <p
+        className={
+          location.pathname === link.link
+            ? 'text-purple-smoke-400'
+            : 'text-white-bg-300'
+        }>
+        {link.label}
+      </p>
+    </Link>
+  ));
+
   return (
     <AnimatePresence>
       {open && (
@@ -47,36 +61,7 @@ const MobileNav = ({ open, handleOpen }: MobileNavProps) => {
           <div
             onClick={() => handleOpen()}
             className="flex flex-col gap-10 text-center text-3xl uppercase justify-start h-full mt-60">
-            <Link key={'Home'} to={`/`}>
-              <p
-                className={
-                  location.pathname === '/'
-                    ? 'text-highlight'
-                    : 'text-light-500'
-                }>
-                Home
-              </p>
-            </Link>
-            <Link key={'Boats'} to={`/boats`}>
-              <p
-                className={
-                  location.pathname === '/boats'
-                    ? 'text-highlight'
-                    : 'text-light-500'
-                }>
-                Boats
-              </p>
-            </Link>
-            <Link key={'Drivers'} to={`/drivers`}>
-              <p
-                className={
-                  location.pathname === '/drivers'
-                    ? 'text-highlight'
-                    : 'text-light-500'
-                }>
-                Drivers
-              </p>
-            </Link>
+            {items}
           </div>
         </motion.div>
       )}

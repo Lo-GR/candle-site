@@ -8,7 +8,9 @@ import '@mantine/core/styles.css';
 import { createTheme, MantineProvider } from '@mantine/core';
 import Header from './Components/Header';
 import { Helmet } from "react-helmet";
-// import MobileNav from './Components/MobileNav';
+import Candles from './Pages/Candles';
+import About from './Pages/About';
+import MobileNav from './Components/MobileNav';
 
 
 const root = ReactDOM.createRoot(
@@ -35,9 +37,9 @@ const Layout = () => {
 
       </Helmet>
       <MantineProvider theme={theme}>
-        <Header />
+        <Header handleMobileOpen={handleMobileNav} open={open} />
         <Outlet />
-        {/* <MobileNav open={open} handleOpen={handleMobileNav} /> */}
+        <MobileNav open={open} handleOpen={handleMobileNav} />
       </MantineProvider>
     </>
   );
@@ -51,6 +53,16 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+        errorElement: <Error />,
+      },
+      {
+        path: '/candles',
+        element: <Candles />,
+        errorElement: <Error />,
+      },
+      {
+        path: '/about',
+        element: <About />,
         errorElement: <Error />,
       },
     ],
