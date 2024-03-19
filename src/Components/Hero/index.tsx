@@ -1,5 +1,4 @@
 import { BackgroundImage, Button } from '@mantine/core'
-import React from 'react'
 import MainContainer from '../MainContainer'
 
 type HeroProps = {
@@ -14,7 +13,6 @@ type HeroProps = {
 const Hero = ({ h1, image, cta }: HeroProps) => {
 
   return (
-    // <div style={{ backgroundImage: "url(./assets/images/GaelicSmokeHero.jpg)" } as React.CSSProperties} className="relative h-[400px] overflow-hidden">
     <BackgroundImage src={image} className="bg-[rgba(139,69,19,.4)] bg-blend-overlay relative overflow-hidden h-[200px] lg:h-[400px]">
       <MainContainer classN=' flex flex-cool justify-center items-center relative h-full lg:justify-start'>
         <div className='bg-green-moss-400 transition-all text-center p-6 outline outline-2 outline-black outline-offset-8 shadow-inner lg:p-14 '>
@@ -25,11 +23,6 @@ const Hero = ({ h1, image, cta }: HeroProps) => {
         </div>
       </MainContainer>
     </BackgroundImage>
-    /* <img
-      className={`absolute top-0 w-screen h-full`}
-    /> */
-
-    // </div>
   )
 }
 

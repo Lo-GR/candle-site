@@ -1,6 +1,4 @@
-import React, { useState } from 'react'
 import { Burger, Group, Image } from '@mantine/core'
-import { useDisclosure } from '@mantine/hooks'
 import logo from '../../Images/GSlogowhiteLRG.png'
 import MainContainer from '../MainContainer'
 import { Link, useLocation } from 'react-router-dom'
@@ -13,7 +11,6 @@ type HeaderProps = {
 }
 
 const Header = ({ handleMobileOpen, open }: HeaderProps) => {
-  const [opened, { toggle }] = useDisclosure(false);
   const location = useLocation();
 
   const items = paths.map((link) => (
